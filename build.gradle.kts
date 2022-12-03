@@ -14,7 +14,7 @@ plugins {
 }
 
 project.extra["GithubUrl"] = "https://github.com/Storm-Client/storm-plugins-release"
-project.extra["GithubUserName"] = "storm"
+project.extra["GithubUserName"] = "Storm-Client"
 project.extra["GithubRepoName"] = "storm-plugins-release"
 
 apply<BootstrapPlugin>()
