@@ -1,4 +1,4 @@
-import ProjectVersions.unethicaliteVersion
+import ProjectVersions.stormVersion
 
 buildscript {
     repositories {
@@ -13,16 +13,16 @@ plugins {
     kotlin("jvm") version "1.6.21"
 }
 
-project.extra["GithubUrl"] = "https://github.com/unethicalite/unethicalite-plugins-release"
-project.extra["GithubUserName"] = "unethicalite"
-project.extra["GithubRepoName"] = "unethicalite-plugins-release"
+project.extra["GithubUrl"] = "https://github.com/Storm-Client/storm-plugins-release"
+project.extra["GithubUserName"] = "storm"
+project.extra["GithubRepoName"] = "storm-plugins-release"
 
 apply<BootstrapPlugin>()
 
 allprojects {
-    group = "net.unethicalite"
+    group = "net.storm.plugins"
 
-    project.extra["PluginProvider"] = "unethicalite"
+    project.extra["PluginProvider"] = "storm"
     project.extra["ProjectSupportUrl"] = "https://discord.gg/WTvTbSPknJ"
     project.extra["PluginLicense"] = "3-Clause BSD License"
 
@@ -35,15 +35,10 @@ allprojects {
         mavenCentral()
         mavenLocal()
         maven {
-            url = uri("https://repo.unethicalite.net/releases/")
-            mavenContent {
-                releasesOnly()
-            }
-        }
-        maven {
-            url = uri("https://repo.unethicalite.net/snapshots/")
-            mavenContent {
-                snapshotsOnly()
+            url = uri("https://repo.storm-client.net/private/")
+            credentials {
+                username = System.getenv("REPO_USERNAME")
+                password = System.getenv("REPO_PASSWORD")
             }
         }
     }
@@ -52,9 +47,9 @@ allprojects {
         annotationProcessor(Libraries.lombok)
         annotationProcessor(Libraries.pf4j)
 
-        compileOnly("net.unethicalite:http-api:$unethicaliteVersion+")
-        compileOnly("net.unethicalite:runelite-api:$unethicaliteVersion+")
-        compileOnly("net.unethicalite:runelite-client:$unethicaliteVersion+")
+        compileOnly("net.unethicalite:http-api:$stormVersion+")
+        compileOnly("net.unethicalite:runelite-api:$stormVersion+")
+        compileOnly("net.unethicalite:runelite-client:$stormVersion+")
 
         compileOnly(Libraries.guice)
         compileOnly(Libraries.javax)
