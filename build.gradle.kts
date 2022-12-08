@@ -35,7 +35,7 @@ allprojects {
         mavenCentral()
         mavenLocal()
         maven {
-            url = uri("https://repo.storm-client.net/private/")
+            url = uri("https://repo.storm-client.net/dev/")
             credentials {
                 username = System.getenv("REPO_USERNAME")
                 password = System.getenv("REPO_PASSWORD")
