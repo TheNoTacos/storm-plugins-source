@@ -25,18 +25,12 @@
 
 rootProject.name = "storm-plugins"
 
-include("unethical-fighter")
-include("unethical-butler")
-include("unethical-kebab-buyer")
-include("unethical-autologin")
-include("unethical-oneclick")
-include("unethical-agility")
-include("unethical-explorer")
-include("unethical-chopper")
-include("unethical-cooker")
-include("unethical-bankpin")
-include("unethical-pickpocket")
-include("unethical-logout")
+include("warpcutter")
+include("warpgauntlet")
+include("warpskiller")
+include("warpmasterthieving")
+include("warpvyrekiller")
+include("warpcrabs")
 
 for (project in rootProject.children) {
     project.apply {
@@ -47,3 +41,4 @@ for (project in rootProject.children) {
         require(buildFile.isFile) { "Project '${project.path} must have a $buildFile build script" }
     }
 }
+
