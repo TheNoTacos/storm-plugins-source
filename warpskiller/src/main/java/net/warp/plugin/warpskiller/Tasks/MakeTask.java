@@ -102,17 +102,21 @@ public class MakeTask implements Task {
 
     private PluginStatus getStatus ()
     {
-        switch (plugin.config.craftTask())
+        if (plugin.config.skillTask() == SkillTask.CRAFTING)
         {
-            case AMETHYST:
-                return PluginStatus.AMETHYST;
-            case GLASSBLOW:
-                return PluginStatus.GLASSBLOW;
-            case GEMCUTTING:
-                return PluginStatus.GEMCUTTING;
+            switch (plugin.config.craftTask())
+            {
+                case AMETHYST:
+                    return PluginStatus.AMETHYST;
+                case GLASSBLOW:
+                    return PluginStatus.GLASSBLOW;
+                case GEMCUTTING:
+                    return PluginStatus.GEMCUTTING;
+            }
         }
 
-        if (plugin.config.herbloreType() == Herblore.POTION)
+
+        if (plugin.config.skillTask() == SkillTask.HERBLORE && plugin.config.herbloreType() == Herblore.POTION)
         {
             return PluginStatus.POTIONMAKING;
         }

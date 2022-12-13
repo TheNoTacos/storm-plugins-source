@@ -79,7 +79,7 @@ public class WarpSkillerPlugin extends TaskPlugin
     @Override
     protected void startUp()
     {
-        overlayManager.add(builderOverlay);
+        if (config.paint()) overlayManager.add(builderOverlay);
         if (client.getGameState() != GameState.LOGGED_IN)
         {
             return;

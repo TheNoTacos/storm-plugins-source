@@ -7,6 +7,7 @@ import net.unethicalite.api.commons.Time;
 import net.unethicalite.api.entities.Players;
 import net.unethicalite.api.entities.TileItems;
 import net.unethicalite.api.entities.TileObjects;
+import net.unethicalite.api.game.Game;
 import net.unethicalite.api.items.Bank;
 import net.unethicalite.api.items.Inventory;
 import net.unethicalite.api.plugins.Plugins;
@@ -237,6 +238,7 @@ public class BankTask implements Task
     private void stopPlugin()
     {
         MessageUtils.addMessage("Can't find items in Bank.");
+        if (plugin.config.logOut()) Game.logout();
         SwingUtilities.invokeLater(() -> Plugins.stopPlugin(plugin));
     }
 }

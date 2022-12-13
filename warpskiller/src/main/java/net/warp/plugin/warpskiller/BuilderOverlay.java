@@ -62,7 +62,7 @@ class BuilderOverlay extends Overlay
     private void renderStats(Graphics2D graphics){
 
         int secondsRunning=(int)(System.currentTimeMillis()-plugin.startTime)/1000;
-        String mainText = "Warp Skiller V0.2.1";
+        String mainText = "Warp Skiller V0.2.2";
         String taskString = "Current task: " + plugin.config.skillTask().getTaskName() + " - " + plugin.state.getStatus();
         String runtimeString="Runtime: "+getRuntimeString(secondsRunning);
         String statusString="Status: "+plugin.status;

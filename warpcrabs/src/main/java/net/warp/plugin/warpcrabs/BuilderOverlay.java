@@ -64,7 +64,7 @@ class BuilderOverlay extends Overlay
     private void renderStats(Graphics2D graphics){
 
         int secondsRunning=(int)(System.currentTimeMillis()-plugin.startTime)/1000;
-        String mainText = "Warp Sand Crabs V0.1.0";
+        String mainText = "Warp Sand Crabs V0.1.1";
         String statusString = "Status: " + plugin.status;
         String runtimeString="Runtime: " + getRuntimeString(secondsRunning);
         String timerString="Time on location: "+plugin.timerUtil.toMinutes((int)plugin.timerUtil.getElapsedTime());

@@ -3,6 +3,7 @@ package net.warp.plugin.warpcrabs;
 import com.google.inject.Provides;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.*;
+import net.runelite.api.coords.WorldArea;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.widgets.Widget;
@@ -131,7 +132,8 @@ public class WarpCrabsPlugin extends LoopedPlugin {
 
         WorldPoint resetLocation = config.location().getResetLocation();
         WorldPoint killLocation = config.location().getKillLocation();
-
+        WorldArea killArea = new WorldArea(config.location().getKillLocation(), config.crabRadius(), config.crabRadius());
+        WorldArea rockArea = new WorldArea(config.location().getKillLocation(), config.rockRadius(), config.rockRadius());
         List<String> lootItems = List.of(config.lootItem().split(","));
 
         if (!Combat.isRetaliating())
@@ -217,8 +219,8 @@ public class WarpCrabsPlugin extends LoopedPlugin {
         {
             log.info("Starting to pull");
             status = "Not in Combat";
-            crab = NPCs.getAll(x -> x.distanceTo(local.getWorldLocation()) < config.crabRadius() && x.getName().equals(crabName));
 
+            crab = NPCs.getAll(x -> killArea.contains(x.getWorldLocation()) && x.getName().equals(crabName));
             if (!crab.isEmpty())
             {
                 for (NPC npc : crab)
@@ -232,7 +234,7 @@ public class WarpCrabsPlugin extends LoopedPlugin {
             }
 
             log.debug("No Crabs around going for rocks");
-            crabRock = NPCs.getAll(x -> x.distanceTo(local.getWorldLocation()) < config.rockRadius() && x.getName().equals(rockName));
+            crabRock = NPCs.getAll(x -> rockArea.contains(x.getWorldLocation()) && x.getName().equals(rockName));
             if (!crabRock.isEmpty())
             {
                 log.debug("Rock count: " + crabRock.size());

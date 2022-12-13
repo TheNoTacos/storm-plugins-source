@@ -72,6 +72,15 @@ public interface WarpSkillerConfig extends Config {
     default boolean logOut() { return true; }
 
     @ConfigItem(
+            keyName = "paint",
+            name = "Paint",
+            description = "Wanna use paint?",
+            position = 2,
+            section = general
+    )
+    default boolean paint() { return true; }
+
+    @ConfigItem(
             keyName = "craftTask",
             name = "Craft: ",
             description = "What to craft",
