@@ -24,4 +24,5 @@ hs_err*
 replay_pid*
 release
 plugins.json
+build.gradle.kts
 test
