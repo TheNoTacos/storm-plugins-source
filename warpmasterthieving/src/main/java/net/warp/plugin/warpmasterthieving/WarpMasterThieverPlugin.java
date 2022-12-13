@@ -32,7 +32,8 @@ import java.util.Comparator;
 
 @Slf4j
 @Extension
-public class WarpMasterThieverPlugin extends LoopedPlugin {
+public class WarpMasterThieverPlugin extends LoopedPlugin
+{
 
     @Provides
     WarpMasterThieverConfig provideConfig(ConfigManager configManager)
@@ -49,7 +50,8 @@ public class WarpMasterThieverPlugin extends LoopedPlugin {
     private final WorldArea bankArea = new WorldArea(new WorldPoint(3092, 3241, 0), new WorldPoint(3094, 3245, 0));
 
     @Override
-    protected int loop() {
+    protected int loop()
+    {
 
         var bank = TileObjects
                 .getSurrounding(Players.getLocal().getWorldLocation(), 23, bankBooth)
@@ -117,8 +119,8 @@ public class WarpMasterThieverPlugin extends LoopedPlugin {
             }
         }
 
-        if (!Inventory.contains(config.foodName()) || Inventory.isFull()) {
-
+        if (!Inventory.contains(config.foodName()) || Inventory.isFull())
+        {
             if (!bankArea.contains(local.getWorldLocation()))
             {
                 log.debug("Walking to bank");
@@ -126,7 +128,8 @@ public class WarpMasterThieverPlugin extends LoopedPlugin {
                 return -1;
             }
 
-            if (!Bank.isOpen() && bank != null) {
+            if (!Bank.isOpen() && bank != null)
+            {
                 log.debug("Click bank");
                 bank.interact("Bank");
                 Time.sleepUntil(Bank::isOpen, -2);

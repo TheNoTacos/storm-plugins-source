@@ -128,7 +128,7 @@ public class WarpSkillerPlugin extends TaskPlugin
         switch (config.skillTask())
         {
             case HERBLORE:
-                switch(config.herbloreType())
+                switch (config.herbloreType())
                 {
                     case CLEAN:
                         item1 = "Grimy";
@@ -158,7 +158,7 @@ public class WarpSkillerPlugin extends TaskPlugin
                 break;
 
             case CRAFTING:
-                switch(config.craftTask())
+                switch (config.craftTask())
                 {
                     case GEMCUTTING:
                         String gemName = "Uncut " + config.gemType().getGemName();

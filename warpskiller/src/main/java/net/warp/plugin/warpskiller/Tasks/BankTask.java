@@ -25,7 +25,8 @@ import java.util.Set;
 @Slf4j
 public class BankTask implements Task
 {
-    public BankTask(WarpSkillerPlugin plugin) {
+    public BankTask(WarpSkillerPlugin plugin)
+    {
         this.plugin = plugin;
     }
 
@@ -36,7 +37,8 @@ public class BankTask implements Task
     private boolean pickGlass;
 
     @Override
-    public boolean validate() {
+    public boolean validate()
+    {
         return plugin.banking;
     }
 
@@ -55,10 +57,12 @@ public class BankTask implements Task
         if (plugin.config.pickupGlass() && glass != null)
         {
             plugin.status = "BankTask - Glass pickup";
-            if (!pickGlass) {
+            if (!pickGlass)
+            {
                 log.debug("Banking to pickup Glass");
 
-                if (!Bank.isOpen() && bankObject != null && Inventory.contains("Molten glass")) {
+                if (!Bank.isOpen() && bankObject != null && Inventory.contains("Molten glass"))
+                {
                     log.debug("Opening bank");
                     bankObject.interact(bankText);
                     Time.sleepUntil(Bank::isOpen, -4);
@@ -164,7 +168,8 @@ public class BankTask implements Task
                     {
                         plugin.staff = Inventory.getFirst(plugin.item1);
                     }
-                    for (Item item : Inventory.getAll()) {
+                    for (Item item : Inventory.getAll())
+                    {
                         if (item.getName().equals(plugin.item1)
                                 || item.getName().equals(plugin.item2)
                                 || item.getName().equals("Rune pouch")
@@ -190,7 +195,8 @@ public class BankTask implements Task
                             log.info("Checking if bank has " + plugin.item1);
                             var bankItem = Bank.getFirst(x -> x.getName().equals(plugin.item1));
 
-                            if (bankItem != null) {
+                            if (bankItem != null)
+                            {
                                 plugin.status = "BankTask - Getting item " + bankItem.getName();
                                 log.info("Getting " + plugin.item1Amount + " " + bankItem.getName() + " from bank");
                                 Bank.withdraw(bankItem.getName(), plugin.item1Amount, Bank.WithdrawMode.ITEM);
@@ -211,7 +217,8 @@ public class BankTask implements Task
                             log.info("Checking if bank has " + plugin.item2);
                             var bankItem = Bank.getFirst(x -> x.getName().equals(plugin.item2));
 
-                            if (bankItem != null) {
+                            if (bankItem != null)
+                            {
                                 plugin.status = "BankTask - Getting item " + bankItem.getName();
                                 log.info("Getting " + plugin.item2Amount + " " + bankItem.getName() + " from bank");
                                 Bank.withdraw(bankItem.getName(), plugin.item2Amount, Bank.WithdrawMode.ITEM);

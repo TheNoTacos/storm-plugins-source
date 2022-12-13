@@ -3,7 +3,8 @@ package net.warp.plugin.warpmasterthieving;
 import net.runelite.client.config.*;
 
 @ConfigGroup("warpmasterthieving")
-public interface WarpMasterThieverConfig extends Config {
+public interface WarpMasterThieverConfig extends Config
+{
     @ConfigSection(
             name = "Warp Thieving",
             description = "Thieving settings",
@@ -42,7 +43,10 @@ public interface WarpMasterThieverConfig extends Config {
             position = 2,
             section = general
     )
-    default String foodName() { return "Cake"; }
+    default String foodName()
+    {
+        return "Cake";
+    }
 
     @ConfigItem(
             keyName = "foodAmount",
@@ -51,7 +55,10 @@ public interface WarpMasterThieverConfig extends Config {
             position = 3,
             section = general
     )
-    default int foodAmount() { return 5; }
+    default int foodAmount()
+    {
+        return 5;
+    }
 
     @ConfigItem(
             keyName = "seedToDrop",
@@ -60,5 +67,8 @@ public interface WarpMasterThieverConfig extends Config {
             position = 4,
             section = general
     )
-    default String seedToDrop() { return "Hammerstone seed,"; }
+    default String seedToDrop()
+    {
+        return "Hammerstone seed,";
+    }
 }

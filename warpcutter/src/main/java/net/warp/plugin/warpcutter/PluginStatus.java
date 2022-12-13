@@ -3,7 +3,8 @@ package net.warp.plugin.warpcutter;
 import lombok.Getter;
 
 @Getter
-public enum PluginStatus {
+public enum PluginStatus
+{
     IDLE("Idle"),
     CHOPPING("Chopping"),
     BANK("Banking"),

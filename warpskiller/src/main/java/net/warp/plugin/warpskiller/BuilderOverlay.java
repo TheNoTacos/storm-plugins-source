@@ -54,22 +54,23 @@ class BuilderOverlay extends Overlay
     {
         graphics2D.setFont(FONT);
 
-        if (plugin.startTime > 0) {
+        if (plugin.startTime > 0)
+        {
             renderStats(graphics2D);
         }
         return null;
     }
-    private void renderStats(Graphics2D graphics){
+    private void renderStats(Graphics2D graphics)
+    {
 
-        int secondsRunning=(int)(System.currentTimeMillis()-plugin.startTime)/1000;
+        int secondsRunning = (int)(System.currentTimeMillis() - plugin.startTime) / 1000;
         String mainText = "Warp Skiller V0.2.2";
         String taskString = "Current task: " + plugin.config.skillTask().getTaskName() + " - " + plugin.state.getStatus();
-        String runtimeString="Runtime: "+getRuntimeString(secondsRunning);
-        String statusString="Status: "+plugin.status;
-
+        String runtimeString = "Runtime: " + getRuntimeString(secondsRunning);
+        String statusString = "Status: " + plugin.status;
 
         Rectangle slotBounds;
-        double hoursAsDouble=(double) secondsRunning/3600.0;
+        double hoursAsDouble = (double) secondsRunning / 3600.0;
         int craftGained = (Skills.getExperience(Skill.CRAFTING) - plugin.craftingExp);
         int magicGained = (Skills.getExperience(Skill.MAGIC) - plugin.magicExp);
         int herbloreGained = (Skills.getExperience(Skill.HERBLORE) - plugin.herbloreExp);
@@ -83,13 +84,16 @@ class BuilderOverlay extends Overlay
 
         List<Widget> chatboxRoot = Widgets.get(162);
         Widget box = chatboxRoot.get(34);
-        if(box!=null){
+        if (box != null)
+        {
             slotBounds = box.getBounds();
             Point mouse = plugin.client.getCanvas().getMousePosition();
             graphics.setColor(new Color(0, 0, 0, 255));
 
-            if(mouse!=null) {
-                if (slotBounds.contains(mouse)){
+            if (mouse != null)
+            {
+                if (slotBounds.contains(mouse))
+                {
                     graphics.setColor(new Color(0, 0, 0, 125));
                 }
             }
@@ -98,7 +102,6 @@ class BuilderOverlay extends Overlay
 
         int textX = 20;
         int textY = 370;
-
         graphics.setFont(FONT);
         graphics.setColor(Color.BLACK);
         graphics.drawString(mainText, textX + 1, textY + 1);
@@ -118,13 +121,13 @@ class BuilderOverlay extends Overlay
         graphics.setColor(YELLOW);
         graphics.drawString(runtimeString, textX, textY);
 
-        textY +=20;
+        textY += 20;
         graphics.setColor(Color.BLACK);
         graphics.drawString(statusString, textX + 1, textY + 1);
         graphics.setColor(YELLOW);
         graphics.drawString(statusString, textX, textY);
 
-        textY +=20;
+        textY += 20;
         graphics.setFont(FONT);
         graphics.setColor(Color.BLACK);
         graphics.drawString(taskString, textX + 1, textY + 1);
@@ -176,34 +179,40 @@ class BuilderOverlay extends Overlay
         }
 
     }
-    private String getRuntimeString(int secondsRunning){
-
+    private String getRuntimeString(int secondsRunning)
+    {
         int hours = secondsRunning / 3600;
         secondsRunning -= (hours * 3600);
         int minutes = secondsRunning / 60;
         secondsRunning -= (minutes * 60);
         int seconds = secondsRunning;
-        String secondString=""+seconds;
-        String minuteString=""+minutes;
-        String hourString=""+hours;
-        if(seconds<10) {
+        String secondString = "" + seconds;
+        String minuteString = "" + minutes;
+        String hourString = "" + hours;
+        if (seconds < 10)
+        {
             secondString = "0" + seconds;
-            if(seconds==0){
-                secondString="00";
+            if (seconds == 0)
+            {
+                secondString = "00";
             }
         }
-        if(minutes<10){
-            minuteString="0"+minutes;
-            if(minutes==0){
-                minuteString="00";
+        if (minutes < 10)
+        {
+            minuteString = "0" + minutes;
+            if (minutes == 0)
+            {
+                minuteString = "00";
             }
         }
-        if(hours<10){
-            hourString="0"+hours;
-            if(hours==0){
-                hourString="00";
+        if (hours < 10)
+        {
+            hourString = "0" + hours;
+            if (hours == 0)
+            {
+                hourString = "00";
             }
         }
-        return hourString+":"+minuteString+":"+secondString;
+        return hourString + ":" + minuteString + ":" + secondString;
     }
 }

@@ -19,7 +19,8 @@ import java.util.Set;
 
 @Singleton
 @Slf4j
-public class SetupTask implements Task {
+public class SetupTask implements Task
+{
 
     private final Set<String> bankObjects = Set.of("Bank booth", "Grand Exchange booth", "Bank chest");
     private final String[] bankText = {"Bank", "Use"};
@@ -33,7 +34,8 @@ public class SetupTask implements Task {
     private WarpSkillerPlugin plugin;
 
     @Override
-    public boolean validate() {
+    public boolean validate()
+    {
         return plugin.needSetup;
     }
 
@@ -103,7 +105,8 @@ public class SetupTask implements Task {
                 }
                 if (plugin.config.spellType() == Spells.PLANK_MAKE)
                 {
-                    if (Bank.isOpen() && !gotPouch) {
+                    if (Bank.isOpen() && !gotPouch)
+                    {
                         log.debug("Getting Rune pouch");
                         if (!Inventory.contains(runePouch) && Bank.contains(runePouch))
                         {
@@ -208,20 +211,24 @@ public class SetupTask implements Task {
         return false;
     }
 
-    private boolean itemEquipped(int... ID) {
+    private boolean itemEquipped(int... ID)
+    {
         return Equipment.contains(ID);
     }
 
     @Nullable
     private Item getStaff()
     {
-        if (Equipment.contains(plugin.staffID)) {
+        if (Equipment.contains(plugin.staffID))
+        {
             return Equipment.getFirst(plugin.staffID);
         }
-        if (Bank.contains(plugin.staffID)) {
+        if (Bank.contains(plugin.staffID))
+        {
             return Bank.getFirst(plugin.staffID);
         }
-        if (Inventory.contains(plugin.staffID)) {
+        if (Inventory.contains(plugin.staffID))
+        {
             return Inventory.getFirst(plugin.staffID);
         }
         log.debug("Null");

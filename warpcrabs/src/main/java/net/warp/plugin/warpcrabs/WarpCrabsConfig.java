@@ -36,7 +36,10 @@ public interface WarpCrabsConfig extends Config
             position = 0,
             section = location
     )
-    default Locations location() { return Locations.SANDCRAB1; }
+    default Locations location()
+    {
+        return Locations.SANDCRAB1;
+    }
 
     @ConfigItem(
             keyName = "crabRadius",
@@ -45,7 +48,10 @@ public interface WarpCrabsConfig extends Config
             position = 1,
             section = location
     )
-    default int crabRadius() { return 6; }
+    default int crabRadius()
+    {
+        return 6;
+    }
 
     @ConfigItem(
             keyName = "rockRadius",
@@ -54,7 +60,10 @@ public interface WarpCrabsConfig extends Config
             position = 2,
             section = location
     )
-    default int rockRadius() { return 8; }
+    default int rockRadius()
+    {
+        return 8;
+    }
 
     @ConfigItem(
             keyName = "getAmmo",
@@ -63,7 +72,10 @@ public interface WarpCrabsConfig extends Config
             position = 2,
             section = looting
     )
-    default boolean getAmmo() { return false; }
+    default boolean getAmmo()
+    {
+        return false;
+    }
 
     @ConfigItem(
             keyName = "ammoName",
@@ -72,7 +84,10 @@ public interface WarpCrabsConfig extends Config
             position = 3,
             section = looting
     )
-    default String ammoName() { return "Iron knife"; }
+    default String ammoName()
+    {
+        return "Iron knife";
+    }
 
     @ConfigItem(
             keyName = "eatFood",
@@ -81,7 +96,10 @@ public interface WarpCrabsConfig extends Config
             position = 0,
             section = food
     )
-    default boolean eatFood() { return false; }
+    default boolean eatFood()
+    {
+        return false;
+    }
 
     @Range(max = 100)
     @ConfigItem(
@@ -103,7 +121,10 @@ public interface WarpCrabsConfig extends Config
             position = 2,
             section = food
     )
-    default String foodName() { return "Salmon"; }
+    default String foodName()
+    {
+        return "Salmon";
+    }
 
     @ConfigItem(
             keyName = "alchItems",
@@ -112,7 +133,10 @@ public interface WarpCrabsConfig extends Config
             position = 0,
             section = highAlch
     )
-    default boolean highAlch() { return false; }
+    default boolean highAlch()
+    {
+        return false;
+    }
 
     @ConfigItem(
             keyName = "alchItem",
@@ -121,7 +145,10 @@ public interface WarpCrabsConfig extends Config
             position = 1,
             section = highAlch
     )
-    default String alchItem() { return "Rune full helm"; }
+    default String alchItem()
+    {
+        return "Rune full helm";
+    }
 
     @ConfigItem(
             keyName = "lootItems",
@@ -130,7 +157,10 @@ public interface WarpCrabsConfig extends Config
             position = 0,
             section = looting
     )
-    default boolean lootItems() { return false; }
+    default boolean lootItems()
+    {
+        return false;
+    }
     @ConfigItem(
             keyName = "lootItem",
             name = "Items to loot: ",
@@ -138,5 +168,8 @@ public interface WarpCrabsConfig extends Config
             position = 1,
             section = looting
     )
-    default String lootItem() { return "Coins,Seaweed"; }
+    default String lootItem()
+    {
+        return "Coins,Seaweed";
+    }
 }

@@ -3,7 +3,8 @@ package net.warp.plugin.warpskiller;
 import lombok.Getter;
 
 @Getter
-public enum PluginStatus {
+public enum PluginStatus
+{
     IDLE("Idle"),
     ALCH("Alching"),
     SUPERHEAT("Casting Superheat ore"),

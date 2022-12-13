@@ -3,7 +3,8 @@ package net.warp.plugin.warpskiller.Skills;
 import lombok.Getter;
 
 @Getter
-public enum SkillTask {
+public enum SkillTask
+{
     SLEEP("Sleep"),
     CRAFTING("Crafting"),
     MAGIC("Magic"),

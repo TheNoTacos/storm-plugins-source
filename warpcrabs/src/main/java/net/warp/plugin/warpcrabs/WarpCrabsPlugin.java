@@ -29,7 +29,6 @@ import net.unethicalite.api.widgets.Widgets;
 import org.pf4j.Extension;
 
 import javax.inject.Inject;
-import java.util.Arrays;
 import java.util.List;
 
 //Thanks to Keegan for the support
@@ -41,7 +40,8 @@ import java.util.List;
 )
 @Slf4j
 @Extension
-public class WarpCrabsPlugin extends LoopedPlugin {
+public class WarpCrabsPlugin extends LoopedPlugin
+{
 
     @Provides
     WarpCrabsConfig provideConfig(ConfigManager configManager)

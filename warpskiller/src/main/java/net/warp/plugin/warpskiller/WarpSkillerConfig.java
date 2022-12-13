@@ -10,8 +10,8 @@ import net.warp.plugin.warpskiller.Skills.Herblore;
 import net.warp.plugin.warpskiller.Skills.SkillTask;
 
 @ConfigGroup("warpskiller")
-public interface WarpSkillerConfig extends Config {
-
+public interface WarpSkillerConfig extends Config
+{
     @ConfigSection(
         name = "Skill",
         description = "General settings",
@@ -19,7 +19,6 @@ public interface WarpSkillerConfig extends Config {
         closedByDefault = false
     )
     String general = "General";
-
     @ConfigSection(
             name = "Crafting",
             description = "Crafting settings",
@@ -28,7 +27,6 @@ public interface WarpSkillerConfig extends Config {
             hidden = true
     )
     String crafting = "Crafting";
-
     @ConfigSection(
             name = "Magic",
             description = "Magic spell to cast",
@@ -36,7 +34,6 @@ public interface WarpSkillerConfig extends Config {
             closedByDefault = true
     )
     String magic = "Magic";
-
     @ConfigSection(
             name = "Fletching",
             description = "Fletch settings",
@@ -44,7 +41,6 @@ public interface WarpSkillerConfig extends Config {
             closedByDefault = true
     )
     String fletching = "Fletching";
-
     @ConfigSection(
             name = "Herblore",
             description = "Herblore settings",
@@ -52,7 +48,6 @@ public interface WarpSkillerConfig extends Config {
             closedByDefault = true
     )
     String herblore = "Herblore";
-
     @ConfigItem(
             keyName = "skillTask",
             name = "Select a skill:",
@@ -60,7 +55,10 @@ public interface WarpSkillerConfig extends Config {
             position = 0,
             section = general
     )
-    default SkillTask skillTask() { return SkillTask.SLEEP; }
+    default SkillTask skillTask()
+    {
+        return SkillTask.SLEEP;
+    }
 
     @ConfigItem(
             keyName = "logOut",
@@ -69,7 +67,10 @@ public interface WarpSkillerConfig extends Config {
             position = 1,
             section = general
     )
-    default boolean logOut() { return true; }
+    default boolean logOut()
+    {
+        return true;
+    }
 
     @ConfigItem(
             keyName = "paint",
@@ -78,8 +79,10 @@ public interface WarpSkillerConfig extends Config {
             position = 2,
             section = general
     )
-    default boolean paint() { return true; }
-
+    default boolean paint()
+    {
+        return true;
+    }
     @ConfigItem(
             keyName = "craftTask",
             name = "Craft: ",
@@ -87,8 +90,10 @@ public interface WarpSkillerConfig extends Config {
             position = 0,
             section = crafting
     )
-    default Crafting craftTask() { return Crafting.GLASSBLOW; }
-
+    default Crafting craftTask()
+    {
+        return Crafting.GLASSBLOW;
+    }
     @ConfigItem(
             keyName = "glassBlow",
             name = "Blow: ",
@@ -96,8 +101,10 @@ public interface WarpSkillerConfig extends Config {
             position = 1,
             section = crafting
     )
-    default Glassblow glassBlow() { return Glassblow.BEER_GLASS; }
-
+    default Glassblow glassBlow()
+    {
+        return Glassblow.BEER_GLASS;
+    }
     @ConfigItem(
             keyName = "gemType",
             name = "Gem to cut:",
@@ -105,8 +112,10 @@ public interface WarpSkillerConfig extends Config {
             position = 2,
             section = crafting
     )
-    default Gems gemType() { return Gems.SAPPHIRE; }
-
+    default Gems gemType()
+    {
+        return Gems.SAPPHIRE;
+    }
     @ConfigItem(
             keyName = "amethystType",
             name = "Cut Amethyst: ",
@@ -114,8 +123,10 @@ public interface WarpSkillerConfig extends Config {
             position = 3,
             section = crafting
     )
-    default Amethyst amethystType() { return Amethyst.DART_TIPS; }
-
+    default Amethyst amethystType()
+    {
+        return Amethyst.DART_TIPS;
+    }
     @ConfigItem(
             keyName = "spellType",
             name = "Spell to Cast:",
@@ -123,8 +134,10 @@ public interface WarpSkillerConfig extends Config {
             position = 0,
             section = magic
     )
-    default Spells spellType() { return Spells.HIGH_ALCH; }
-
+    default Spells spellType()
+    {
+        return Spells.HIGH_ALCH;
+    }
     @ConfigItem(
             keyName = "alchItem",
             name = "Item to alch:",
@@ -132,8 +145,10 @@ public interface WarpSkillerConfig extends Config {
             position = 1,
             section = magic
     )
-    default String alchItem() { return "Yew shortbow (u)"; }
-
+    default String alchItem()
+    {
+        return "Yew shortbow (u)";
+    }
     @ConfigItem(
             keyName = "barType",
             name = "Bar:",
@@ -141,7 +156,10 @@ public interface WarpSkillerConfig extends Config {
             position = 2,
             section = magic
     )
-    default Bars barType() {return Bars.IRON; }
+    default Bars barType()
+    {
+        return Bars.IRON;
+    }
 
     @ConfigItem(
             keyName = "pickupGlass",
@@ -150,7 +168,10 @@ public interface WarpSkillerConfig extends Config {
             position = 3,
             section = magic
     )
-    default boolean pickupGlass() {return false; }
+    default boolean pickupGlass()
+    {
+        return false;
+    }
 
     @ConfigItem(
             keyName = "bowType",
@@ -159,7 +180,10 @@ public interface WarpSkillerConfig extends Config {
             position = 0,
             section = fletching
     )
-    default Bows bow() { return Bows.LONGBOW; }
+    default Bows bow()
+    {
+        return Bows.LONGBOW;
+    }
 
     @ConfigItem(
             keyName = "logType",
@@ -168,7 +192,10 @@ public interface WarpSkillerConfig extends Config {
             position = 1,
             section = fletching
     )
-    default Logs log() { return Logs.YEW; }
+    default Logs log()
+    {
+        return Logs.YEW;
+    }
     @ConfigItem(
             keyName = "herbloreType",
             name = "Herblore: ",
@@ -176,8 +203,10 @@ public interface WarpSkillerConfig extends Config {
             position = 0,
             section = herblore
     )
-    default Herblore herbloreType() { return Herblore.CLEAN; }
-
+    default Herblore herbloreType()
+    {
+        return Herblore.CLEAN;
+    }
     @ConfigItem(
             keyName = "potionItem1",
             name = "Item name:",
@@ -185,8 +214,10 @@ public interface WarpSkillerConfig extends Config {
             position = 1,
             section = herblore
     )
-    default String potionItem1() { return "Vial of water"; }
-
+    default String potionItem1()
+    {
+        return "Vial of water";
+    }
     @ConfigItem(
             keyName = "potionItem2",
             name = "Item name:",
@@ -194,5 +225,8 @@ public interface WarpSkillerConfig extends Config {
             position = 1,
             section = herblore
     )
-    default String potionItem2() { return "Guam leaf"; }
+    default String potionItem2()
+    {
+        return "Guam leaf";
+    }
 }

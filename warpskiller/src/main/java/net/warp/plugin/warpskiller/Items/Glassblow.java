@@ -3,7 +3,8 @@ package net.warp.plugin.warpskiller.Items;
 import lombok.Getter;
 
 @Getter
-public enum Glassblow {
+public enum Glassblow
+{
     BEER_GLASS("Beer glass", 14),
     CANDLE_LANTERN("Lantern", 15),
     OIL_LAMP("Oil Lamp", 16),

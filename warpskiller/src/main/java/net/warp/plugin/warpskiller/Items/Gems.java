@@ -16,7 +16,6 @@ public enum Gems
     Gems(String gemName)
     {
         this.gemName = gemName;
-
     }
 }
 

@@ -5,8 +5,6 @@ import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 import net.runelite.client.config.ConfigSection;
 
-import java.util.Arrays;
-
 @ConfigGroup("warpcutter")
 public interface WarpCutterConfig extends Config
 {
@@ -23,7 +21,10 @@ public interface WarpCutterConfig extends Config
             position = 0,
             section = general
     )
-    default boolean getNest() { return true; }
+    default boolean getNest()
+    {
+        return true;
+    }
     @ConfigItem(
             keyName = "locationName",
             name = "Location",
@@ -31,7 +32,10 @@ public interface WarpCutterConfig extends Config
             position = 1,
             section = general
     )
-    default Location locationName() { return Location.DRAYNOR; }
+    default Location locationName()
+    {
+        return Location.DRAYNOR;
+    }
     @ConfigItem(
             keyName = "treeType",
             name = "Tree type",
@@ -50,5 +54,8 @@ public interface WarpCutterConfig extends Config
             position = 3,
             section = general
     )
-    default boolean useSpecial() { return true; }
+    default boolean useSpecial()
+    {
+        return true;
+    }
 }

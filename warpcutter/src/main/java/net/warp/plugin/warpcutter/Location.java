@@ -5,7 +5,8 @@ import net.runelite.api.coords.WorldArea;
 import net.runelite.api.coords.WorldPoint;
 
 @Getter
-public enum Location {
+public enum Location
+{
     POWERCHOP("Drop", null, null, Tree.TREE, Tree.OAK, Tree.WILLOW, Tree.MAPLE, Tree.YEW, Tree.MAGIC),
     DRAYNOR("Draynor", new WorldArea(3092, 3242, 2, 3, 0),
             new WorldArea(new WorldPoint(3084, 3227, 0), new WorldPoint(3089, 3237, 0)),

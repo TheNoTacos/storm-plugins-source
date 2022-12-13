@@ -61,7 +61,7 @@ public class MagicTask implements Task
             return -1;
         }
 
-        switch(plugin.config.spellType())
+        switch (plugin.config.spellType())
         {
             case SUPERHEAT_GLASS:
                 if (Inventory.getCount(plugin.item1) == plugin.item1Amount && Inventory.getCount(plugin.item2) == plugin.item2Amount)

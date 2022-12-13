@@ -3,7 +3,8 @@ package net.warp.plugin.warpskiller.Items;
 import lombok.Getter;
 
 @Getter
-public enum Logs {
+public enum Logs
+{
     LOGS("Logs"),
     OAK("Oak "),
     WILLOW("Willow "),

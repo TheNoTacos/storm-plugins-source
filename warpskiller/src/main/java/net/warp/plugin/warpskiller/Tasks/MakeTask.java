@@ -16,8 +16,8 @@ import net.warp.plugin.warpskiller.Skills.SkillTask;
 import net.warp.plugin.warpskiller.WarpSkillerPlugin;
 
 @Slf4j
-public class MakeTask implements Task {
-
+public class MakeTask implements Task
+{
     public MakeTask(WarpSkillerPlugin plugin)
     {
         this.plugin = plugin;
@@ -31,8 +31,8 @@ public class MakeTask implements Task {
     }
 
     @Override
-    public int execute() {
-
+    public int execute()
+    {
         plugin.state = getStatus();
 
         if (!Inventory.contains(plugin.item1) || !Inventory.contains(plugin.item2))
@@ -94,7 +94,7 @@ public class MakeTask implements Task {
                 break;
 
             case HERBLORE:
-                return Widgets.get(270,14);
+                return Widgets.get(270, 14);
         }
         return null;
     }
