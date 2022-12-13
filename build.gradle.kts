@@ -13,16 +13,16 @@ plugins {
     kotlin("jvm") version "1.6.21"
 }
 
-project.extra["GithubUrl"] = "https://github.com/Storm-Client/storm-plugins-release"
-project.extra["GithubUserName"] = "Storm-Client"
-project.extra["GithubRepoName"] = "storm-plugins-release"
+project.extra["GithubUrl"] = "https://github.com/WaRpProjects/StormPlugins"
+project.extra["GithubUserName"] = "WaRpProjects"
+project.extra["GithubRepoName"] = "StormPlugins"
 
 apply<BootstrapPlugin>()
 
 allprojects {
     group = "net.storm.plugins"
 
-    project.extra["PluginProvider"] = "storm"
+    project.extra["PluginProvider"] = "WaRp"
     project.extra["ProjectSupportUrl"] = "https://discord.gg/WTvTbSPknJ"
     project.extra["PluginLicense"] = "3-Clause BSD License"
 
