@@ -13,7 +13,7 @@ jobs:
       - name: Prepare bootstrap files
         run: |
           mkdir release
-          git clone https://github.com/Storm-Client/storm-plugins-release.git deploy
+          git clone https://github.com/WaRpProjects/StormPlugins.git deploy
           cp ./deploy/plugins.json .
 
       - name: Make gradlew executable
@@ -28,8 +28,8 @@ jobs:
           cp plugins.json deploy
           cd deploy
           
-          git config --global user.email "burakinan1@hotmail.com"
-          git config --global user.name "Github Actions"
+          git config --global user.email "johnnybikker@gmail.com"
+          git config --global user.name "WarpProjects"
           git add -A
           git commit -m 'Plugins auto release'
-          git push https://buracc:${{ secrets.REPO_PAT }}@github.com/Storm-Client/storm-plugins-release.git master
+          git push https://WarpProjects:${{ secrets.REPO_PAT }}@github.com/WaRpProjects/StormPlugins.git master
