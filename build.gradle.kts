@@ -37,8 +37,8 @@ allprojects {
         maven {
             url = uri("https://repo.storm-client.net/dev/")
             credentials {
-                username = secrets.REPO_KEY
-                password = secrets.REPO_BUILD
+                username = System.getenv("REPO_USERNAME")
+                password = System.getenv("REPO_PASSWORD")
             }
         }
     }
