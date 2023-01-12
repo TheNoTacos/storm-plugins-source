@@ -12,9 +12,10 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
-import net.unethicalite.api.game.Skills;
-import net.unethicalite.api.plugins.Task;
-import net.unethicalite.api.plugins.TaskPlugin;
+import net.storm.api.game.Game;
+import net.storm.api.game.Skills;
+import net.storm.api.plugins.Task;
+import net.storm.api.plugins.TaskPlugin;
 import net.warp.plugin.warpskiller.Items.Logs;
 import net.warp.plugin.warpskiller.Tasks.*;
 
@@ -75,6 +76,11 @@ public class WarpSkillerPlugin extends TaskPlugin
             itemSetup();
             needSetup = true;
         }
+    }
+
+    public void logOut()
+    {
+        Game.logout();
     }
     @Override
     protected void startUp()
@@ -217,7 +223,7 @@ public class WarpSkillerPlugin extends TaskPlugin
                         item1 = config.barType().getOres();
                         item1Amount = 27;
                         item2 = "Nature rune";
-                        item2Amount = 3743743;
+                        item2Amount = 0;
                         makeTask = false;
                         break;
 
@@ -227,9 +233,9 @@ public class WarpSkillerPlugin extends TaskPlugin
                         rune2 = 554;
                         staffID = new int[]{12000, 1387, 1393, 1401};
                         item1 = config.alchItem();
-                        item1Amount = 684849;
+                        item1Amount = 0;
                         item2 = "Nature rune";
-                        item2Amount = 3743743;
+                        item2Amount = 0;
                         makeTask = false;
                         break;
                 }

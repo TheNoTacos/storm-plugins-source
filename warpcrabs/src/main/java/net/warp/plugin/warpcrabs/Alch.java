@@ -1,8 +1,8 @@
 package net.warp.plugin.warpcrabs;
 
 import lombok.Getter;
-import net.unethicalite.api.magic.Spell;
-import net.unethicalite.api.magic.SpellBook;
+import net.storm.api.magic.Spell;
+import net.storm.api.magic.SpellBook;
 
 @Getter
 public enum Alch

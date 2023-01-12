@@ -3,19 +3,20 @@ package net.warp.plugin.warpskiller.Tasks;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Item;
 import net.runelite.api.TileItem;
-import net.unethicalite.api.commons.Time;
-import net.unethicalite.api.entities.Players;
-import net.unethicalite.api.entities.TileItems;
-import net.unethicalite.api.entities.TileObjects;
-import net.unethicalite.api.game.Game;
-import net.unethicalite.api.items.Bank;
-import net.unethicalite.api.items.Inventory;
-import net.unethicalite.api.plugins.Plugins;
-import net.unethicalite.api.plugins.Task;
-import net.unethicalite.api.utils.MessageUtils;
+import net.storm.api.commons.Time;
+import net.storm.api.entities.Players;
+import net.storm.api.entities.TileItems;
+import net.storm.api.entities.TileObjects;
+import net.storm.api.game.Game;
+import net.storm.api.items.Bank;
+import net.storm.api.items.Inventory;
+import net.storm.api.plugins.Plugins;
+import net.storm.api.plugins.Task;
+import net.storm.api.utils.MessageUtils;
 import net.warp.plugin.warpskiller.Skills.Herblore;
 import net.warp.plugin.warpskiller.Items.Spells;
 import net.warp.plugin.warpskiller.PluginStatus;
+import net.warp.plugin.warpskiller.Skills.SkillTask;
 import net.warp.plugin.warpskiller.WarpSkillerPlugin;
 
 import javax.swing.*;
@@ -114,8 +115,39 @@ public class BankTask implements Task
                         }
                     }
 
+                    if (plugin.config.spellType() == Spells.HIGH_ALCH || plugin.config.spellType() == Spells.LOW_ALCH)
+                    {
+                        plugin.item1Amount = Bank.getCount(plugin.item1) + Inventory.getCount(plugin.item1);
+                        plugin.item2Amount = Bank.getCount(plugin.item2) + Inventory.getCount(plugin.item2);
+
+                        if (!Inventory.contains(plugin.item1))
+                        {
+                            Item alchItem = Bank.getFirst(plugin.item1);
+                            if (alchItem != null)
+                            {
+                                Bank.withdraw(alchItem.getId(), alchItem.getQuantity(), Bank.WithdrawMode.NOTED);
+                                plugin.item1Amount = Bank.getCount(plugin.item1) + Inventory.getCount(plugin.item1);
+                                Time.sleepUntil(() -> Inventory.contains(alchItem.getId()) , -3);
+                                return -1;
+                            }
+                        }
+
+                        if (!Inventory.contains(plugin.item2))
+                        {
+                            Item alchItem = Bank.getFirst(plugin.item2);
+                            if (alchItem != null)
+                            {
+                                Bank.withdraw(alchItem.getId(), alchItem.getQuantity(), Bank.WithdrawMode.ITEM);
+                                Time.sleepUntil(() -> Inventory.contains(alchItem.getId()) , -3);
+                                return -1;
+                            }
+                        }
+                        plugin.banking = false;
+                        return -1;
+                    }
+
                 case HERBLORE:
-                    if (plugin.config.herbloreType() == Herblore.CLEAN)
+                    if (plugin.config.herbloreType() == Herblore.CLEAN && plugin.config.skillTask() == SkillTask.HERBLORE)
                     {
                         if (Inventory.contains(x -> x.getName().contains(plugin.item1)))
                         {

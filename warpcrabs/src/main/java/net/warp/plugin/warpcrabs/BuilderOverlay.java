@@ -14,8 +14,8 @@ import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayPriority;
-import net.unethicalite.api.game.Skills;
-import net.unethicalite.api.widgets.Widgets;
+import net.storm.api.game.Skills;
+import net.storm.api.widgets.Widgets;
 
 import javax.inject.Inject;
 import java.awt.*;

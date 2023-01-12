@@ -24,7 +24,7 @@
  */
 
 object ProjectVersions {
-    const val stormVersion = "1.0.22"
+    const val stormVersion = "1.0.24"
     const val apiVersion = "^1.0.0"
 }
 

@@ -11,21 +11,23 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
-import net.unethicalite.api.commons.Rand;
-import net.unethicalite.api.commons.Time;
-import net.unethicalite.api.entities.NPCs;
-import net.unethicalite.api.entities.Players;
-import net.unethicalite.api.entities.TileItems;
-import net.unethicalite.api.game.Combat;
-import net.unethicalite.api.game.Prices;
-import net.unethicalite.api.game.Skills;
-import net.unethicalite.api.items.Inventory;
-import net.unethicalite.api.magic.Magic;
-import net.unethicalite.api.movement.Movement;
-import net.unethicalite.api.plugins.LoopedPlugin;
-import net.unethicalite.api.widgets.Tab;
-import net.unethicalite.api.widgets.Tabs;
-import net.unethicalite.api.widgets.Widgets;
+import net.storm.api.MouseHandler;
+import net.storm.api.commons.Rand;
+import net.storm.api.commons.Time;
+import net.storm.api.entities.NPCs;
+import net.storm.api.entities.Players;
+import net.storm.api.entities.TileItems;
+import net.storm.api.game.Combat;
+import net.storm.api.game.Prices;
+import net.storm.api.game.Skills;
+import net.storm.api.items.Inventory;
+import net.storm.api.magic.Magic;
+import net.storm.api.movement.Movement;
+import net.storm.api.packets.MousePackets;
+import net.storm.api.plugins.LoopedPlugin;
+import net.storm.api.widgets.Tab;
+import net.storm.api.widgets.Tabs;
+import net.storm.api.widgets.Widgets;
 import org.pf4j.Extension;
 
 import javax.inject.Inject;
@@ -228,6 +230,7 @@ public class WarpCrabsPlugin extends LoopedPlugin
                     if (npc.isDead()) continue;
                     status = "Attacking " + crabName;
                     npc.interact("Attack");
+                    MousePackets.queueClickPacket();
                     Time.sleepUntil(() -> !local.isIdle(), -2);
                     return -1;
                 }
@@ -242,6 +245,7 @@ public class WarpCrabsPlugin extends LoopedPlugin
                 {
                     status = "Moving to " + rockName;
                     Movement.walkTo(npc.getWorldLocation());
+                    MousePackets.queueClickPacket();
                     Time.sleepUntil(local::isMoving, -4);
                     return -1;
                 }

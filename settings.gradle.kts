@@ -31,6 +31,7 @@ include("warpskiller")
 include("warpmasterthieving")
 include("warpvyrekiller")
 include("warpcrabs")
+include("warpspinner")
 
 for (project in rootProject.children) {
     project.apply {

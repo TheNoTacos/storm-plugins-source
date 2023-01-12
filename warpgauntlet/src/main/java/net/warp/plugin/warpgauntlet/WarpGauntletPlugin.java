@@ -10,15 +10,15 @@ import net.runelite.api.widgets.Widget;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.unethicalite.api.entities.NPCs;
-import net.unethicalite.api.entities.Players;
-import net.unethicalite.api.game.Combat;
-import net.unethicalite.api.interaction.InteractMethod;
-import net.unethicalite.api.items.Equipment;
-import net.unethicalite.api.items.Inventory;
-import net.unethicalite.api.plugins.LoopedPlugin;
-import net.unethicalite.api.widgets.Prayers;
-import net.unethicalite.api.widgets.Widgets;
+import net.storm.api.entities.NPCs;
+import net.storm.api.entities.Players;
+import net.storm.api.game.Combat;
+import net.storm.api.interaction.InteractMethod;
+import net.storm.api.items.Equipment;
+import net.storm.api.items.Inventory;
+import net.storm.api.plugins.LoopedPlugin;
+import net.storm.api.widgets.Prayers;
+import net.storm.api.widgets.Widgets;
 
 import org.pf4j.Extension;
 
@@ -183,12 +183,9 @@ public class WarpGauntletPlugin extends LoopedPlugin
         }
     }
 
-
-
-
     private HeadIcon npcHeadIcon(NPC npc)
     {
-        return npc.getTransformedComposition().getOverheadIcon();
+        return npc.getOverheadIcon();
     }
     private HeadIcon playerHeadIcon()
     {

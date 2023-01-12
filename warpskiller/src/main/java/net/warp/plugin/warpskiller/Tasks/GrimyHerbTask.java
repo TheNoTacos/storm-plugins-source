@@ -2,8 +2,8 @@ package net.warp.plugin.warpskiller.Tasks;
 
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Item;
-import net.unethicalite.api.items.Inventory;
-import net.unethicalite.api.plugins.Task;
+import net.storm.api.items.Inventory;
+import net.storm.api.plugins.Task;
 import net.warp.plugin.warpskiller.PluginStatus;
 import net.warp.plugin.warpskiller.Skills.Herblore;
 import net.warp.plugin.warpskiller.Skills.SkillTask;

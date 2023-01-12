@@ -3,13 +3,12 @@ package net.warp.plugin.warpskiller.Tasks;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Item;
 import net.runelite.api.Varbits;
-import net.unethicalite.api.commons.Time;
-import net.unethicalite.api.entities.TileObjects;
-import net.unethicalite.api.items.Bank;
-import net.unethicalite.api.items.Equipment;
-import net.unethicalite.api.items.Inventory;
-import net.unethicalite.api.plugins.Task;
-import net.warp.plugin.warpskiller.Items.Spells;
+import net.storm.api.commons.Time;
+import net.storm.api.entities.TileObjects;
+import net.storm.api.items.Bank;
+import net.storm.api.items.Equipment;
+import net.storm.api.items.Inventory;
+import net.storm.api.plugins.Task;
 import net.warp.plugin.warpskiller.PluginStatus;
 import net.warp.plugin.warpskiller.WarpSkillerPlugin;
 import org.jetbrains.annotations.Nullable;
@@ -75,7 +74,7 @@ public class SetupTask implements Task
 
 
             case MAGIC:
-
+/*
                 String runePouch = "Rune pouch";
                 log.debug("Setting up magic");
 
@@ -184,11 +183,14 @@ public class SetupTask implements Task
                     break;
                 }
                 }
+ */
+        }
+                log.debug("Plugin setup is done");
+                plugin.firstRun = false;
+                plugin.needSetup = false;
+                return -1;
 
-        log.debug("Plugin setup is done");
-        plugin.firstRun = false;
-        plugin.needSetup = false;
-        return -1;
+
     }
 
 

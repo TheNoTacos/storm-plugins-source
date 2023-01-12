@@ -3,13 +3,13 @@ package net.warp.plugin.warpskiller.Tasks;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Item;
 import net.runelite.api.ItemComposition;
-import net.unethicalite.api.game.Prices;
-import net.unethicalite.api.items.Equipment;
-import net.unethicalite.api.items.Inventory;
-import net.unethicalite.api.magic.Magic;
-import net.unethicalite.api.plugins.Plugins;
-import net.unethicalite.api.plugins.Task;
-import net.unethicalite.api.utils.MessageUtils;
+import net.storm.api.game.Prices;
+import net.storm.api.items.Equipment;
+import net.storm.api.items.Inventory;
+import net.storm.api.magic.Magic;
+import net.storm.api.plugins.Plugins;
+import net.storm.api.plugins.Task;
+import net.storm.api.utils.MessageUtils;
 import net.warp.plugin.warpskiller.Skills.SkillTask;
 import net.warp.plugin.warpskiller.Items.Spells;
 import net.warp.plugin.warpskiller.PluginStatus;
@@ -54,8 +54,16 @@ public class MagicTask implements Task
             return -1;
         }
 
+
+
         if (!plugin.config.spellType().getSpellType().canCast())
         {
+
+            if (plugin.config.logOut())
+            {
+                plugin.logOut();
+            }
+
             MessageUtils.addMessage("Can't cast spell shutting plugin");
             SwingUtilities.invokeLater(() -> Plugins.stopPlugin(plugin));
             return -1;

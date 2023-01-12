@@ -12,6 +12,17 @@ public interface WarpMasterThieverConfig extends Config
     )
     String general = "Warp Thieving";
     @ConfigItem(
+            keyName = "NPC",
+            name = "What to thief",
+            description = "What to thief",
+            position = 0,
+            section = general
+    )
+    default Thiever npc()
+    {
+        return Thiever.MASTER_FARMER_DRAYNOR;
+    }
+    @ConfigItem(
             keyName = "eat",
             name = "Eat food",
             description = "Eat food to heal",

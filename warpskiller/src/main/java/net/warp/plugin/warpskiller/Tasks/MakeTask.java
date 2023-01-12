@@ -3,11 +3,12 @@ package net.warp.plugin.warpskiller.Tasks;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Item;
 import net.runelite.api.widgets.Widget;
-import net.unethicalite.api.commons.Time;
-import net.unethicalite.api.items.Inventory;
-import net.unethicalite.api.plugins.Task;
-import net.unethicalite.api.widgets.Production;
-import net.unethicalite.api.widgets.Widgets;
+import net.storm.api.commons.Time;
+import net.storm.api.items.Inventory;
+import net.storm.api.plugins.Task;
+import net.storm.api.widgets.Dialog;
+import net.storm.api.widgets.Production;
+import net.storm.api.widgets.Widgets;
 import net.warp.plugin.warpskiller.Items.Bows;
 import net.warp.plugin.warpskiller.Items.Logs;
 import net.warp.plugin.warpskiller.PluginStatus;
@@ -61,7 +62,7 @@ public class MakeTask implements Task
                 log.debug("Production menu is open");
                 getWidget().interact(0);
                 plugin.status = "MakeTask - Player Busy";
-                Time.sleepUntil(() -> !Inventory.contains(item2.getName()), 60000);
+                Time.sleepUntil(() -> !Inventory.contains(item2.getName()) || Dialog.canContinue(), 60000);
                 return -1;
             }
         }
