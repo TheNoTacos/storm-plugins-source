@@ -137,7 +137,7 @@ public class WarpSkillerPlugin extends TaskPlugin
                 switch (config.herbloreType())
                 {
                     case CLEAN:
-                        item1 = "Grimy";
+                        item1 = config.grimyHerb().getHerbName();
                         item1Amount = 28;
                         item2 = "Null";
                         item2Amount = 0;

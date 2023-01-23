@@ -66,30 +66,6 @@ public interface WarpCrabsConfig extends Config
     }
 
     @ConfigItem(
-            keyName = "getAmmo",
-            name = "pickup Ammo",
-            description = "Pickup ammo",
-            position = 2,
-            section = looting
-    )
-    default boolean getAmmo()
-    {
-        return false;
-    }
-
-    @ConfigItem(
-            keyName = "ammoName",
-            name = "Ammo name:",
-            description = "Name of ammo to pickup",
-            position = 3,
-            section = looting
-    )
-    default String ammoName()
-    {
-        return "Iron knife";
-    }
-
-    @ConfigItem(
             keyName = "eatFood",
             name = "Eat food: ",
             description = "Eat food?",

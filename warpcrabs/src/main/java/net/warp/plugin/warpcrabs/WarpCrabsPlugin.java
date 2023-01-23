@@ -11,7 +11,6 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
-import net.storm.api.MouseHandler;
 import net.storm.api.commons.Rand;
 import net.storm.api.commons.Time;
 import net.storm.api.entities.NPCs;
@@ -74,8 +73,6 @@ public class WarpCrabsPlugin extends LoopedPlugin
     public long startTime;
     public String status = "Idle";
 
-
-    //private Alch alch;
     @Override
     protected void startUp()
     {
@@ -126,6 +123,7 @@ public class WarpCrabsPlugin extends LoopedPlugin
     protected int loop()
     {
         Player local = Players.getLocal();
+
         List<NPC> crab;
         List<NPC> crabRock;
 
@@ -134,8 +132,10 @@ public class WarpCrabsPlugin extends LoopedPlugin
 
         WorldPoint resetLocation = config.location().getResetLocation();
         WorldPoint killLocation = config.location().getKillLocation();
+
         WorldArea killArea = new WorldArea(config.location().getKillLocation(), config.crabRadius(), config.crabRadius());
         WorldArea rockArea = new WorldArea(config.location().getKillLocation(), config.rockRadius(), config.rockRadius());
+
         List<String> lootItems = List.of(config.lootItem().split(","));
 
         if (!Combat.isRetaliating())
@@ -251,30 +251,6 @@ public class WarpCrabsPlugin extends LoopedPlugin
                 }
             }
             status = "No " + rockName + " found";
-        }
-
-        if (config.getAmmo() && local.isIdle())
-        {
-            TileItem ammo = TileItems.getNearest(x -> x.distanceTo(local.getWorldLocation()) < 2 && x.getName().contains(config.ammoName()));
-            if (ammo != null)
-            {
-                status = "Pickup Ammo";
-                getLoot = true;
-                log.debug("Picking up ammo");
-                ammo.pickup();
-                Time.sleepUntil(() -> ammo == null, -2);
-                getLoot = false;
-                return -1;
-            }
-
-            Item ammoEquip = Inventory.getFirst(config.ammoName());
-            if (ammoEquip != null)
-            {
-                log.debug("Equipping ammo");
-                ammoEquip.interact("Wield");
-                Time.sleepUntil(() -> !Inventory.contains(ammoEquip.getName()), -2);
-                return -1;
-            }
         }
 
         if (!local.getWorldLocation().equals(killLocation) && local.isIdle())

@@ -205,13 +205,26 @@ public interface WarpSkillerConfig extends Config
     )
     default Herblore herbloreType()
     {
-        return Herblore.CLEAN;
+        return Herblore.POTION;
     }
+
+    @ConfigItem(
+            keyName = "grimyHerb",
+            name = "Herb to clean: ",
+            description = "What herb to clean",
+            position = 1,
+            section = herblore
+    )
+    default Herbs grimyHerb()
+    {
+        return Herbs.GRIMY_GUAM;
+    }
+
     @ConfigItem(
             keyName = "potionItem1",
             name = "Item name:",
             description = "What item to combine",
-            position = 1,
+            position = 2,
             section = herblore
     )
     default String potionItem1()
@@ -222,7 +235,7 @@ public interface WarpSkillerConfig extends Config
             keyName = "potionItem2",
             name = "Item name:",
             description = "What item to combine",
-            position = 1,
+            position = 3,
             section = herblore
     )
     default String potionItem2()

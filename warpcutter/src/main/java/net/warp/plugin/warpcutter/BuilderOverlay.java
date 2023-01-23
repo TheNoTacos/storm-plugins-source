@@ -61,7 +61,7 @@ class BuilderOverlay extends Overlay
     private void renderStats(Graphics2D graphics)
     {
         int secondsRunning = (int)(System.currentTimeMillis() - plugin.startTime) / 1000;
-        String mainText = "WarpWoodCutter V0.1.0";
+        String mainText = "WarpWoodCutter V0.1.2";
         String runtimeString = "Runtime: " + getRuntimeString(secondsRunning);
         String statusString = "Status: " + plugin.status.getStatus();
         String xpString = " XP: ";

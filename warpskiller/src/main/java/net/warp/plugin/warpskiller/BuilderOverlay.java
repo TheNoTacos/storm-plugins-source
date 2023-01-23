@@ -64,7 +64,7 @@ class BuilderOverlay extends Overlay
     {
 
         int secondsRunning = (int)(System.currentTimeMillis() - plugin.startTime) / 1000;
-        String mainText = "Warp Skiller V0.2.2";
+        String mainText = "Warp Skiller V0.2.64";
         String taskString = "Current task: " + plugin.config.skillTask().getTaskName() + " - " + plugin.state.getStatus();
         String runtimeString = "Runtime: " + getRuntimeString(secondsRunning);
         String statusString = "Status: " + plugin.status;

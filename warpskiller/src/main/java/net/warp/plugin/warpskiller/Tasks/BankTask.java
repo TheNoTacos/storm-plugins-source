@@ -115,13 +115,18 @@ public class BankTask implements Task
                         }
                     }
 
-                    if (plugin.config.spellType() == Spells.HIGH_ALCH || plugin.config.spellType() == Spells.LOW_ALCH)
+                    if (plugin.config.spellType() == Spells.HIGH_ALCH || plugin.config.spellType() == Spells.LOW_ALCH || plugin.config.spellType() == Spells.SUPERHEAT)
                     {
                         plugin.item1Amount = Bank.getCount(plugin.item1) + Inventory.getCount(plugin.item1);
                         plugin.item2Amount = Bank.getCount(plugin.item2) + Inventory.getCount(plugin.item2);
 
+
+
+                        Bank.depositAllExcept(plugin.item1, plugin.item2, "Nature rune");
+
                         if (!Inventory.contains(plugin.item1))
                         {
+
                             Item alchItem = Bank.getFirst(plugin.item1);
                             if (alchItem != null)
                             {
@@ -142,56 +147,14 @@ public class BankTask implements Task
                                 return -1;
                             }
                         }
+
+                        Bank.close();
+                        Time.sleepUntil(() -> !Bank.isOpen(), -2);
                         plugin.banking = false;
                         return -1;
                     }
 
                 case HERBLORE:
-                    if (plugin.config.herbloreType() == Herblore.CLEAN && plugin.config.skillTask() == SkillTask.HERBLORE)
-                    {
-                        if (Inventory.contains(x -> x.getName().contains(plugin.item1)))
-                        {
-                            if (Bank.isOpen())
-                            {
-                                plugin.status = "BankTask - Herblore closing bank";
-                                Bank.close();
-                                Time.sleepUntil(() -> !Bank.isOpen(), -2);
-                                plugin.banking = false;
-                                return -1;
-                            }
-                            plugin.banking = false;
-                            return -1;
-                        }
-
-                        if (!Bank.contains(x -> x.getName().equals(plugin.item1)))
-                        {
-                            MessageUtils.addMessage("Couldn't find Grimy in bank!");
-                            stopPlugin();
-                        }
-
-                        log.debug("Getting Grimy herbs from bank");
-                        plugin.status = "BankTask - Withdrawing grimy herbs";
-                        Bank.depositInventory();
-                        Time.sleepUntil(Inventory::isEmpty, -2);
-
-                        List<Item> grimyHerb = Bank.getAll(x -> x.getName().contains(plugin.item1));
-                        for (Item grimy : grimyHerb)
-                        {
-                            if (grimy.getQuantity() < 1)
-                            {
-                                continue;
-                            }
-
-                            if (!Inventory.isFull())
-                            {
-                                plugin.status = "BankTask - Getting " + grimy.getName();
-                                log.debug("Getting: " + grimy.getName());
-                                Bank.withdrawAll(grimy.getName(), Bank.WithdrawMode.ITEM);
-                                Time.sleepUntil(() -> Inventory.contains(grimy.getName()), -2);
-                            }
-                        }
-                        return -1;
-                    }
                 case CRAFTING:
                 case FLETCHING:
                     log.debug("Banking for: " + plugin.config.skillTask());

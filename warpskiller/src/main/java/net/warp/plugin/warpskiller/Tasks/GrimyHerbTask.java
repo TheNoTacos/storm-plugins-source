@@ -2,6 +2,10 @@ package net.warp.plugin.warpskiller.Tasks;
 
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Item;
+import net.runelite.api.Player;
+import net.runelite.api.Skill;
+import net.storm.api.entities.Players;
+import net.storm.api.game.Skills;
 import net.storm.api.items.Inventory;
 import net.storm.api.plugins.Task;
 import net.warp.plugin.warpskiller.PluginStatus;
@@ -26,6 +30,11 @@ public class GrimyHerbTask implements Task
     public int execute()
     {
         plugin.state = PluginStatus.CLEANHERBS;
+        if (plugin.config.grimyHerb().getCleanLevel() > Skills.getLevel(Skill.HERBLORE))
+        {
+            plugin.logOut();
+        }
+
         if (!Inventory.contains(x -> x.getName().contains(plugin.item1)))
         {
             log.debug("Need more Grimy herbs");
